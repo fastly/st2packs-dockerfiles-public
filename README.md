@@ -28,16 +28,10 @@ then set `<docker_registry>` to `localhost:5000`.
 
 # Building the st2packs image with private packs
 
-In order to pull packs from private repository, you have to use a [deploy key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) for that specific repository and use it to pull it via SSH protocol.
-
-After you created the key, you can build the image as follows:
-
 ```
-docker build --build-arg PACKS="<pack names>" --build-arg SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY} -t ${DOCKER_REGISTRY}/st2packs:latest st2packs-image
+$ make custom REPOS="git@github.com:<user>/<repository#1>.git,git@github.com:<user>/<repository#2>.git"
 ```
 
-where `<pack names>` can include links to private repositories (`git@github.com:<user>/<repository>.git`)
-and `SSH_PRIVATE_KEY` contains your private key.
 
 # Helper images
 
