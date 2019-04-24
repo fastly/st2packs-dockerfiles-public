@@ -10,6 +10,7 @@ RUN bash /tmp/install_private_packs.sh ${PRIVATE_PACKS}
 # Install public custom packs
 RUN /opt/stackstorm/st2/bin/st2-pack-install ${PACKS}
 
+
 ###########################
 # Minimize the image size. Start with alpine:3.8,
 # and add only packs and virtualenvs from builder.
